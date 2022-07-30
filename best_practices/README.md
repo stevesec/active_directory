@@ -19,3 +19,5 @@ dism /online /add-capability /CapabilityName:Rsat.GroupPolicy.Management.Tools~~
 - [Best Practices for Securing Active Directory](https://docs.microsoft.com/en-us/windows-server/identity/ad-ds/plan/security-best-practices/best-practices-for-securing-active-directory)
 
 - [Installing LAPS for Samba Active Directory](https://samba.tranquil.it/doc/en/samba_advanced_methods/samba_configure_laps.html)
+
+- [Reinforcing the security of your Samba Active Directory domain](https://samba.tranquil.it/doc/en/samba_advanced_methods/samba_active_directory_higher_security_tips.html)
