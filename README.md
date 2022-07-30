@@ -159,4 +159,85 @@ systemctl status chronyd
 
 ## Verify Samba Active Directory
 
+Run the host command
 
+```
+host -t A example.lan
+
+host -t A dc1.example.lan
+```
+
+Verify _kerberos and _ldap services are working
+
+```
+host -t SRV _kerberos._udp.example.lan
+
+host -t SRV _ldap._tcp.example.lan
+```
+
+Verify default resources available on Samba Active Directory
+
+```
+smbclient -L example.lan -N
+```
+
+Lastly, run kinit to authenticate to Kerberos server using the User Administrator (Note: EXAMPLE.LAN must be uppercase).
+
+```
+kinit administrator@EXAMPLE.LAN
+
+klist
+```
+
+## Creating a new Samba Active Directory User
+
+Run the following command to create a user:
+
+```
+samba-tool user create <username> <password>
+
+```
+
+To verify that the user was created:
+
+```
+samba-tool user list
+```
+
+## Join and Logging In to Samba Active Directory Domain
+
+To begin, open PowerShell as Administrator
+
+Next, run the following command to list the ethernet adapters on Windows PC:
+
+```
+Get-NetAdapter -Name "*"
+```
+(Note the adapter name)
+
+After that, execute the following command to change the adapter's DNS server to point to the Samba's Active Directory IP address with 1.1.1.1 as a fallback DNS.
+
+```
+Set-DNSClientServerAddress "Ethernet" -ServerAddress ("<IP Address>","1.1.1.1")
+```
+
+Run the following command to verify that the DNS resolver is pointing to the Samba AD IP address
+```
+Get-DnsClientServerAddress
+```
+
+To verify that you can reach the Samba AD, run the following:
+```
+ping dc1.example.lan
+
+ping example.lan
+```
+
+To add the computer to the domain, run:
+```
+#this will add the computer to the domain "example.lan" and force a restart
+Add-Computer -DomainName "example.lan" -Restart 
+```
+When prompted, add the administrator username and password that was previously configured.
+
+Finally, go to other user and sign in as the newly created user in 
