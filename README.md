@@ -168,7 +168,7 @@ ping dc1.example.lan
 
 ping example.lan
 ```
-- To add the computer to the domain, run:
+- To add the computer to the domain, run [with Administrator]:
 ```
 #this will add the computer to the domain "example.lan" and force a restart
 Add-Computer -DomainName "example.lan" -Restart 
