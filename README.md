@@ -240,4 +240,4 @@ Add-Computer -DomainName "example.lan" -Restart
 ```
 When prompted, add the administrator username and password that was previously configured.
 
-Finally, go to other user and sign in as the newly created user in 
+Finally, go to other user and sign in as the newly created user in [Creating a new Samba Active Directory User](https://github.com/stevesec/active_directory#creating-a-new-samba-active-directory-user)
