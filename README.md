@@ -13,9 +13,7 @@ hostnamectl set-hostname dc1
 ```
 #change FQDN to whatever you would like 
 <IP Address of Host> dc1.example.lan dc1
-
 ```
-
 - Verify FQDN
 ```
 #verify FQDN
@@ -24,7 +22,6 @@ hostname -f
 #verify FQDN is resolved to the Samba IP address
 ping -c3 dc1.example.lan
 ```
-
 ## Restart disable the DNS Resolver
 
 - Ubuntu DNS Configuration is not suitable for Samba Active Directory.
